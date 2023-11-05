@@ -1,4 +1,4 @@
-//¶¯Ì¬Êı×é
+//åŠ¨æ€æ•°ç»„
 #include <iostream>
 using namespace std;
 
@@ -7,8 +7,8 @@ private:
     int* p=NULL;
 public:
     int* array=NULL;
-    int len;//Êı×é³¤¶È
-    int length=0;//ÓĞĞ§Êı¾İ³¤¶È
+    int len;//æ•°ç»„é•¿åº¦
+    int length=0;//æœ‰æ•ˆæ•°æ®é•¿åº¦
 
     Array();
     Array(int num);
@@ -60,7 +60,7 @@ int& Array::operator[](int num){
         len=num+10-(num%10);
         length=num+1;
         p=new int[len]{0};
-        //°Ñ¾ÉÊı¾İ¿½±´µ½ĞÂÊı×é
+        //æŠŠæ—§æ•°æ®æ‹·è´åˆ°æ–°æ•°ç»„
         for (int i = 0; i < length; i++) {
             p[i]=array[i];
         }
@@ -108,8 +108,8 @@ int* Array::operator+(int num){
     return array+num;
 }
 
-//È«¾Öº¯ÊıÖØÔØ¼ÓºÅÔËËã·û
-//ÓÃµ½push_back²»ÄÜÔÚArray×÷ÓÃÓòÏÂ¶¨Òå
+//å…¨å±€å‡½æ•°é‡è½½åŠ å·è¿ç®—ç¬¦
+//ç”¨åˆ°push_backä¸èƒ½åœ¨Arrayä½œç”¨åŸŸä¸‹å®šä¹‰
 Array& operator+(Array& p1,Array& p2){
     for (int i=0;i<p2.length;i++) {
         p1.push_back(p2[i]);
@@ -117,7 +117,7 @@ Array& operator+(Array& p1,Array& p2){
     return p1;
 }
 
-//È«¾Öº¯ÊıÖØÔØ×óÒÆÔËËã·û
+//å…¨å±€å‡½æ•°é‡è½½å·¦ç§»è¿ç®—ç¬¦
 ostream& operator<<(ostream& cout,Array& p){
     cout<<p.array;
     return cout;
@@ -131,7 +131,7 @@ void Array::push_back(int a){
     else{
         len*=2;
         p=new int[len]{0};
-        //°Ñ¾ÉÊı¾İ¿½±´µ½ĞÂÊı×é
+        //æŠŠæ—§æ•°æ®æ‹·è´åˆ°æ–°æ•°ç»„
         for (int i = 0; i < length; i++) {
             p[i]=array[i];
         }
@@ -145,9 +145,9 @@ void Array::push_back(int a){
 }
 
 void Array::show() {
-    cout<<"Êı×éµÄ³¤¶ÈÎª"<<len<<endl;
-    cout<<"Êı×éµÄÓĞĞ§Êı¾İ³¤¶ÈÎª"<<length<<endl;
-    cout<<"Êı×éÖĞÔªËØÎª:";
+    cout<<"æ•°ç»„çš„é•¿åº¦ä¸º"<<len<<endl;
+    cout<<"æ•°ç»„çš„æœ‰æ•ˆæ•°æ®é•¿åº¦ä¸º"<<length<<endl;
+    cout<<"æ•°ç»„ä¸­å…ƒç´ ä¸º:";
     for (int i = 0; i < len; i++) {
         cout<<array[i]<<' ';
     }
@@ -157,15 +157,15 @@ void Array::show() {
 void test1(){
     Array a;
     Array b(14);
-    cout<<"aÊı¾İ:"<<endl;
+    cout<<"aæ•°æ®:"<<endl;
     a.show();
     cout<<"--------------------------------------------------------"<<endl;
 
-    cout<<"bÊı¾İ:"<<endl;
+    cout<<"bæ•°æ®:"<<endl;
     b.show();
     cout<<"--------------------------------------------------------"<<endl;
 
-    cout<<"Ê¹ÓÃ[]¸øaÇ°7Î»¸³Öµ"<<endl;
+    cout<<"ä½¿ç”¨[]ç»™aå‰7ä½èµ‹å€¼"<<endl;
     for (int i = 0; i < 7; i++) {
         a[i]=i+1;
     }
@@ -179,25 +179,25 @@ void test1(){
 
 void test2(){
     Array a(10),b(10);
-    cout<<"³õÊ¼------------------------------------------------------"<<endl;
-    cout<<"aµÄÊı¾İ"<<endl;
+    cout<<"åˆå§‹------------------------------------------------------"<<endl;
+    cout<<"açš„æ•°æ®"<<endl;
     a.show();
-    cout<<"bµÄÊı¾İ"<<endl;
+    cout<<"bçš„æ•°æ®"<<endl;
     b.show();
     for (int i = 0; i < b.len; i++) {
         b[i]=i+1;
     }
-    cout<<"¸øb¸³Öµºó-------------------------------------------------"<<endl;
-    cout<<"aµÄÊı¾İ"<<endl;
+    cout<<"ç»™bèµ‹å€¼å-------------------------------------------------"<<endl;
+    cout<<"açš„æ•°æ®"<<endl;
     a.show();
-    cout<<"bµÄÊı¾İ"<<endl;
+    cout<<"bçš„æ•°æ®"<<endl;
     b.show();
 
     a=b;
-    cout<<"a=bºó---------------------------------------------------"<<endl;
-    cout<<"aµÄÊı¾İ"<<endl;
+    cout<<"a=bå---------------------------------------------------"<<endl;
+    cout<<"açš„æ•°æ®"<<endl;
     a.show();
-    cout<<"bµÄÊı¾İ"<<endl;
+    cout<<"bçš„æ•°æ®"<<endl;
     b.show();
 }
 
@@ -206,13 +206,13 @@ void test3(){
     Array b(10);
     Array c(13);
     //Array b(10)=a;
-    cout<<"Array b(10)=a;»á±¨´í"<<endl;
+    cout<<"Array b(10)=a;ä¼šæŠ¥é”™"<<endl;
     cout<<"--------------------------------------------------------"<<endl;
-    cout<<"aÊı¾İ:"<<endl;
+    cout<<"aæ•°æ®:"<<endl;
     a.show();
-    cout<<"bÊı¾İ:"<<endl;
+    cout<<"bæ•°æ®:"<<endl;
     b.show();
-    cout<<"cÊı¾İ:"<<endl;
+    cout<<"cæ•°æ®:"<<endl;
     c.show();
     cout<<"--------------------------------------------------------"<<endl;
     if (a==b){
@@ -232,21 +232,21 @@ void test3(){
 
 void test4(){
     Array a(14);
-    cout<<"aÊı¾İ:"<<endl;
+    cout<<"aæ•°æ®:"<<endl;
     a.show();
     cout<<"--------------------------------------------------------"<<endl;
     for (int i = 0; i < 14; i++) {
         a[i]=i+1;
     }
-    cout<<"¸³ÖµºóaÊı¾İ:"<<endl;
+    cout<<"èµ‹å€¼åaæ•°æ®:"<<endl;
     a.show();
     cout<<"--------------------------------------------------------"<<endl;
     for (int i = 0; i < 30; i++) {
-        cout<<"Êı×é³¤¶È"<<a.len<<','<<"ÓĞĞ§Êı¾İ³¤¶È"<<a.length<<endl;
+        cout<<"æ•°ç»„é•¿åº¦"<<a.len<<','<<"æœ‰æ•ˆæ•°æ®é•¿åº¦"<<a.length<<endl;
         a.push_back(i);
     }
     cout<<"--------------------------------------------------------"<<endl;
-    cout<<"aÊı¾İ:"<<endl;
+    cout<<"aæ•°æ®:"<<endl;
     a.show();
 }
 
